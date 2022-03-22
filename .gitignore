@@ -2,10 +2,4 @@
 .vs/slnx.sqlite
 .vs/VSWorkspaceState.json
 .vs/cnpz-kafka/v17/.suo
-cnpz-kafka/obj/Debug/net6.0/.NETCoreApp,Version=v6.0.AssemblyAttributes.cs
-cnpz-kafka/obj/Debug/net6.0/cnpz-kafka.AssemblyInfo.cs
-cnpz-kafka/obj/Debug/net6.0/cnpz-kafka.AssemblyInfoInputs.cache
-cnpz-kafka/obj/Debug/net6.0/cnpz-kafka.assets.cache
-cnpz-kafka/obj/Debug/net6.0/cnpz-kafka.csproj.AssemblyReference.cache
-cnpz-kafka/obj/Debug/net6.0/cnpz-kafka.GeneratedMSBuildEditorConfig.editorconfig
-cnpz-kafka/obj/Debug/net6.0/cnpz-kafka.GlobalUsings.g.cs
+cnpz-kafka/obj/*
