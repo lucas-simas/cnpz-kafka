@@ -1,24 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "E:\\WorkNStudy\\cnpz-raiz\\cnpz-kafka\\cnpz-kafka\\cnpz-kafka.csproj": {}
+    "C:\\Users\\Adams\\Desktop\\cnpz-raiz\\cnpz-kafka\\cnpz-kafka\\cnpz-kafka.csproj": {}
   },
   "projects": {
-    "E:\\WorkNStudy\\cnpz-raiz\\cnpz-kafka\\cnpz-kafka\\cnpz-kafka.csproj": {
+    "C:\\Users\\Adams\\Desktop\\cnpz-raiz\\cnpz-kafka\\cnpz-kafka\\cnpz-kafka.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\WorkNStudy\\cnpz-raiz\\cnpz-kafka\\cnpz-kafka\\cnpz-kafka.csproj",
+        "projectUniqueName": "C:\\Users\\Adams\\Desktop\\cnpz-raiz\\cnpz-kafka\\cnpz-kafka\\cnpz-kafka.csproj",
         "projectName": "cnpz-kafka",
-        "projectPath": "E:\\WorkNStudy\\cnpz-raiz\\cnpz-kafka\\cnpz-kafka\\cnpz-kafka.csproj",
-        "packagesPath": "C:\\Users\\lucas\\.nuget\\packages\\",
-        "outputPath": "E:\\WorkNStudy\\cnpz-raiz\\cnpz-kafka\\cnpz-kafka\\obj\\",
+        "projectPath": "C:\\Users\\Adams\\Desktop\\cnpz-raiz\\cnpz-kafka\\cnpz-kafka\\cnpz-kafka.csproj",
+        "packagesPath": "C:\\Users\\Adams\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Adams\\Desktop\\cnpz-raiz\\cnpz-kafka\\cnpz-kafka\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\lucas\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Adams\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

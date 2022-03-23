@@ -7,34 +7,41 @@ namespace cnpz_kafka.GenericKafka
     /// </summary>
     public class Consumer
     {
-        /// <summary>
-        /// Task para leitura de mensagem no KAFKA
-        /// </summary>
-        /// <param name="topic">Tópico da mensagem kafka</param>
-        /// <param name="ip_port">IP e Porta para endereço da mensagem + topico</param>
-        /// <param name="type">Tipo de leitura ao resetar ponteiro</param>
-        static public string ReadKafka(string topic, string ip_port = "127.0.0.1:9094", string type = "latest") {   
+		/// <summary>
+		/// Task para leitura de mensagem no KAFKA
+		/// </summary>
+		/// <param name="topic">Tópico da mensagem kafka</param>
+		/// <param name="ip_port">IP e Porta para endereço da mensagem + topico</param>
+		/// <param name="type">Tipo de leitura ao resetar ponteiro</param>
+		static public void ReadKafka(string topic, Action<string> callback, string ip_port = "127.0.0.1:9094", string type = "latest") {
 
-            var conf = new ConsumerConfig {
+			var config = new ConsumerConfig {
                 GroupId = topic,
                 BootstrapServers = ip_port,
                 AutoOffsetReset = type == "latest" ? AutoOffsetReset.Latest : AutoOffsetReset.Earliest
             };
-            
-            //Consumer
-            using var c = new ConsumerBuilder<Ignore, string>(conf).Build();
-            
+
+            var cancelled = false;
+
             //Token de cancelamento
-            var cts = new CancellationTokenSource();
+            var cancellationToken = new CancellationTokenSource();
             Console.CancelKeyPress += (_, e) => {
-                e.Cancel = true;
-                cts.Cancel();
+                cancelled = true;
+                cancellationToken.Cancel();
             };
 
-            var cr = c.Consume(cts.Token);
-            c.Close();
+            using (var consumer = new ConsumerBuilder<Ignore, string>(config).Build())
+            {
+                consumer.Subscribe(topic);
 
-            return cr.Message.Value ;
+                while (!cancelled)
+                {
+                    var consumeResult = consumer.Consume(cancellationToken.Token);
+				    callback(consumeResult.Message.Value);
+                }
+
+                consumer.Close();
+            }
 
         }
     }

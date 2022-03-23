@@ -20,6 +20,7 @@ namespace cnpz_kafka.GenericKafka
 
             try {
                 p.Produce(topic, new Message<Null, string> { Value = message });
+                p.Flush();
             }
             catch (ProduceException<Null, string> e) {
                 Console.WriteLine($"Delivery failed: {e.Error.Reason}");
