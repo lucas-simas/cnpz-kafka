@@ -18,16 +18,17 @@ namespace cnpz_kafka.GenericKafka
 			var config = new ConsumerConfig {
                 GroupId = topic,
                 BootstrapServers = ip_port,
-                AutoOffsetReset = type == "latest" ? AutoOffsetReset.Latest : AutoOffsetReset.Earliest
+                AutoOffsetReset = type == "latest" ? AutoOffsetReset.Latest : AutoOffsetReset.Earliest,
+                AllowAutoCreateTopics = true
             };
 
             var cancelled = false;
 
             //Token de cancelamento
-            var cancellationToken = new CancellationTokenSource();
+            var cancellation = new CancellationTokenSource();
             Console.CancelKeyPress += (_, e) => {
                 cancelled = true;
-                cancellationToken.Cancel();
+                cancellation.Cancel();
             };
 
             using (var consumer = new ConsumerBuilder<Ignore, string>(config).Build())
@@ -36,7 +37,7 @@ namespace cnpz_kafka.GenericKafka
 
                 while (!cancelled)
                 {
-                    var consumeResult = consumer.Consume(cancellationToken.Token);
+                    var consumeResult = consumer.Consume(cancellation.Token);
 				    callback(consumeResult.Message.Value);
                 }
 
