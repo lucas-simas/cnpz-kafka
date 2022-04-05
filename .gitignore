@@ -4,3 +4,5 @@
 .vs/cnpz-kafka/v17/.suo
 cnpz-kafka/bin/
 cnpz-kafka/obj/
+/cnpz-kafka/.vs/cnpz-kafka/DesignTimeBuild/.dtbcache.v2
+/cnpz-kafka/.vs/cnpz-kafka/v17
